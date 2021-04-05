@@ -1,0 +1,245 @@
+body{
+    box-sizing: border-box;
+}
+p{
+    font-weight: bold;
+}
+.header-def{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 10px;
+    background: rgb(9, 9, 36);
+    color: white;
+    font-size: calc(1.5rem + 3vh);
+    text-shadow: 2.5px 2.5px tomato;
+}
+.header-scroll{
+    font-size: calc(3vh - 0.1rem);
+    min-height: 10vh;
+    transition: 0.9s all ease-in-out;
+}
+.header-scroll h1{
+    margin: 3px;
+}
+
+main{
+    margin-top:5px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    background: rgb(235, 235, 235);
+    
+}
+.form-bar{
+    min-width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transform: translateY(40px);
+    transition: 0.7s all ease-in-out;
+    font-family:monospace;
+    font-size: medium;
+    font-weight: bold;
+    color: rebeccapurple;
+}
+.form-bar-vis{
+    opacity: 1;
+    transform: translateY(0px);
+}
+.formField{
+    background: rgb(171, 241, 181);
+    width: 100px;
+    border-radius: 3px;
+    box-shadow: 2px 2px tomato;
+    font-size: larger;
+    font-family: monospace;
+    font-style: italic;
+    font-weight: 600;
+    color:rgb(0, 22, 94);
+    margin-top:2px;
+    margin-bottom:20px;
+
+}
+.search-result{
+    display: flex;
+    flex-direction: column;
+    min-height: 10vh;
+    width: 95vw;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    overflow-y: scroll;
+    margin-top:10px;
+}
+.table-data td{
+    border-bottom: 2px groove rgb(0, 153, 145);
+    text-align: left;
+    font-size: larger;
+    font-family: monospace;
+    font-style: italic;
+    font-size: 12px;
+    padding: 1px;  
+    background: rgb(10, 10, 10);  
+    color:rgb(229, 255, 0);
+}
+.table-data th{
+    position: sticky;
+    top: 2px;
+    background: rgb(247, 52, 52);
+    height: 20px;
+    font-family:'Times New Roman', Times, serif;
+    letter-spacing: 1px;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(203, 230, 253);
+}
+.table-data{
+    border-collapse: collapse;
+    border-width: 1px;
+    min-height: 20vh;
+    width:70vw;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+}
+.paid-table{
+    border-collapse: collapse;
+    width:70vw;
+}
+.paid-table th{
+    background: rgb(124, 214, 255);
+    text-align: left;
+}
+.paid-table td{
+    border-bottom: 2px groove darkred;
+    text-align: left;
+    font-family: monospace;
+    font-size: 14px;
+    font-weight: bold;
+    color:rgb(0, 0, 61);
+}
+.paid-table #td-price{
+    color:darkred;
+    font-weight: bold;
+}
+.paid{
+    width:30vh;
+    float: right;
+}
+.changed{
+    font-size: 48px;
+    color:red;
+}
+.btn-submit{
+    border: 10px;
+    border-radius: 3px;
+    width: 150px;
+    height:30px;
+    box-shadow: 1px 1px black;
+    background:  rgb(36, 104, 4);
+    box-shadow: darkgrey;
+    color:white;
+    cursor: pointer;
+}
+.confirm{
+    float: right;
+    border: 10px;
+    border-radius: 3px;
+    width: 100px;
+    height:30px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    box-shadow: 2px 2px 2px 2px black;
+    background:  rgb(64, 252, 136);
+    box-shadow: darkgrey;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+    cursor: pointer;
+}
+.confirm:hover{
+    background:  rgb(136, 64, 252);
+}
+
+.cancel{
+    float: right;
+    border: 10px;
+    border-radius: 3px;
+    width: 100px;
+    height:30px;
+    margin-bottom: 5px;
+    margin-top: 2px;
+    margin-right: 5px;
+    box-shadow: 2px 2px 2px 2px black;
+    background:  rgb(145, 1, 1);
+    box-shadow: darkgrey;
+    color:rgb(255, 255, 255);
+    font-weight: bold;
+    cursor: pointer;
+}
+.cancel:hover{
+    background:  rgb(238, 64, 64);
+}
+#see-price{
+    background: darkturquoise;
+}
+.log-out{
+    opacity: 0;
+    width: 100%;
+    border: 50px;
+    border-radius: 2px;
+    color:rgb(255, 255, 255);
+    background-color: rgb(245, 41, 41);
+    cursor: pointer;
+}
+.log-out-hidden{
+    opacity: 1;
+}
+#price{
+    font-family: monospace;
+    font-style: italic;
+    color: rgb(40, 0, 104);
+    font-size: medium;
+}
+#price b{
+    font-size: larger;
+    color:red;
+}
+#user{
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: none;
+    
+}
+#response-span{
+    color:rgb(255, 60, 60);
+    font-size: xx-large;
+    font-family: monospace;
+    font-style: oblique;
+    font-weight: bold;
+    text-shadow: 0.5px 0.5px black;
+    font-stretch: semi-expanded;
+}
+.dynamic-field{
+    max-height: 40vh;
+    padding-bottom: 2px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    min-width: 20%;
+    font-family:monospace;
+    font-size: medium;
+    font-weight: bold;
+    color: rebeccapurple;
+    margin-bottom: 10px;
+}
+.dynamic-field h3{
+    text-align: center;
+}
+

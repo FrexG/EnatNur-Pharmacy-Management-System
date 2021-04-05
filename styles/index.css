@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+header{
+    height:20vh;
+    background: rgb(10, 10, 27);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    font-family: times,dyuthi,ani,uroob;
+    border-bottom: 3px;
+    border-bottom-style: solid;
+    letter-spacing: 3px;
+    font-size: calc(0.5rem + 2vw);
+    text-shadow: 3px 3px rgb(102, 31, 31);
+}
+main{
+    height: 69vh;
+    background: rgb(10, 10, 27);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+main h1{
+    font-family:laksaman,uroob;
+    color:whitesmoke;
+    text-shadow: 2px 2px brown;
+    font-size: 56px;
+}
+main h2{
+    font-family:laksaman,uroob;
+    color:whitesmoke;
+    text-shadow: 2px 2px brown;
+    font-size: 30px;
+}
+footer{
+    height: 10vh;
+    display: flex;
+    justify-content: space-around;
+    background:rgb(83, 37, 37);
+    align-items: center;
+    border-bottom: 2px;
+    border-style: solid;
+    font-family: fantasy;
+    color: darkolivegreen;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    color:white;
+    font-family: fantasy;
+    font-style: oblique;
+    text-shadow: chocolate;
+}
+.form-feild{
+    margin: 5px;
+    height: 50px;
+    border-width: 5px;
+    border-radius: 10px;
+    border-color:rgb(83, 37, 37);
+}
+.btn-sbmt{
+    height: 30px;
+    width:50%;
+    border-radius: 3px;
+    background:rgb(83, 37, 37);
+    color:white;
+    text-shadow: blue;
+}
