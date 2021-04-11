@@ -35,34 +35,39 @@ class Sells{
                     $this->query1 = "SELECT Quantity FROM STOCK WHERE Stock_ID = '$this->drugID'";
                     $this->result1 = mysqli_query($this->connection,$this->query1) or die("This ID doesn't exist in the database");
                     $this->Stockrow = mysqli_fetch_array($this->result1); 
-                
-                    mysqli_free_result($this->result1);
-                    $this->updateStock = "UPDATE STOCK SET Quantity = Quantity - '$this->qnty' WHERE Stock_ID = '$this->drugID'";
-                    mysqli_query($this->connection,$this->updateStock) or die("Error!!");
+
+
+                    if($this->qnty < $this->Stockrow['Quantity']){
+                        mysqli_free_result($this->result1);
+                        $this->updateStock = "UPDATE STOCK SET Quantity = Quantity - '$this->qnty' WHERE Stock_ID = '$this->drugID'";
+                        mysqli_query($this->connection,$this->updateStock) or die("Error!!");
+
+                            // Insert into Sells table after transaction is complete
+                        $this->getPrice = "SELECT * FROM DRUGS WHERE Drug_ID = '$this->drugID'";
+                        $this->priceResult = mysqli_query($this->connection,$this->getPrice) or 
+                        die("Error Selecting");
+                        $this->Ind_Price_Row = mysqli_fetch_array($this->priceResult);
+                        $this->Ind_Price = $this->Ind_Price_Row['Ind_Price'];
+
+                        $this->Total = $this->Ind_Price * $this->qnty;
+                        $this->total += $this->Total;
+                        $this->UID = $this->TBProw['User_ID'];
+                        $this->User = $this->UID;
+                        $this->insertSells = "INSERT INTO SELLS (SELL_ID,DRUG_ID,QUANTITY,TOTAL_PRICE,USER_ID,SELL_DATE)
+                        VALUES ('$this->sellID ','$this->drugID','$this->qnty','$this->Total','$this->UID',CURDATE())";
+
+                        mysqli_query($this->connection,$this->insertSells)
+                        or die("Error :");
+                    } else{
+                        echo "Error: Not enough amount in stock!";
+                    }               
+                    
 
                     $this->removeFromTBP = "DELETE FROM TO_BE_PAID WHERE SELL_ID = '$this->sellVal'";
                     $this->removeFromTBPResult = mysqli_query($this->connection,$this->removeFromTBP) or 
                     die("This Sell doesn't Exist on Database");
 
-                    // Insert into Sells table after transaction is complete
-                    $this->getPrice = "SELECT * FROM DRUGS WHERE Drug_ID = '$this->drugID'";
-                    $this->priceResult = mysqli_query($this->connection,$this->getPrice) or 
-                    die("Error Selecting");
-                    $this->Ind_Price_Row = mysqli_fetch_array($this->priceResult);
-                    $this->Ind_Price = $this->Ind_Price_Row['Ind_Price'];
-
-                    $this->Total = $this->Ind_Price * $this->qnty;
-                    $this->total += $this->Total;
-                    $this->UID = $this->TBProw['User_ID'];
-                    $this->User = $this->UID;
-                    $this->insertSells = "INSERT INTO SELLS (SELL_ID,DRUG_ID,QUANTITY,TOTAL_PRICE,USER_ID,SELL_DATE)
-                    VALUES ('$this->sellID ','$this->drugID','$this->qnty','$this->Total','$this->UID',CURDATE())";
-
-                    mysqli_query($this->connection,$this->insertSells)
-                    or die("Error :");
-                }
-                else{
-                    continue;
+                    
                 }
                 
             }
@@ -74,9 +79,6 @@ class Sells{
                      or die("Error : Please Insert a Valid Sell ID");  
 
                      echo "Done";
-                }
-                else{
-                    echo 'Wrong Sell ID';
                 }
                 
     }

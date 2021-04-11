@@ -1,6 +1,6 @@
 window.onload = ()=>{
     // add new or update quantity of existing item
-    add_Update_Item = (data) =>{
+    let add_Update_Item = (data) =>{
         const statSpan = document.getElementById('stat-span')
         const option = {
             method:'POST',
@@ -22,7 +22,7 @@ window.onload = ()=>{
 
     }
 
-    getSearch = (drugName)=>{
+    let getSearch = (drugName)=>{
         let data = {drugName}
         console.log(data)
         fetch('../routes/search.php',{

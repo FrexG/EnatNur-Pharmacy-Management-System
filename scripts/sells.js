@@ -116,6 +116,7 @@ window.onload = ()=>{
                     body:JSON.stringify(drugID)
                 }).then(response =>{
                     
+                    console.log(response);
                     return response.text()
                     
                 }).then(text =>{

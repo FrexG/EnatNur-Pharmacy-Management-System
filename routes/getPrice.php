@@ -1,4 +1,5 @@
-<?php 
+<?php
+/* I DEEPLY REGRET WRITING THIS IN CORE PHP */ 
     ini_Set('display_errors',false);
     error_reporting(E_COMPILE_ERROR);
     
@@ -7,8 +8,7 @@
 
     $val = json_decode($jsonData);
     $Array = $val->array;
-    //echo $drugID;
-    //echo $drugID[0];
+  
     $connection = mysqli_connect('localhost','frex','6570','inatnur_schema')
     or die( 'Error Connecting to MySQL server');
     
@@ -27,7 +27,7 @@
 
             $price = $row['Ind_Price'];
             $qnty = $row2['Quantity'];
-            $drugs .= '<p>[ '.$row['Drug_Name'].' ] [ Unit Price:<b> '.$price.'</b> ] [ Quantity:<b> '.$Array[$i + 1].' </b>]</p>';
+            $drugs .= '<p>[ '.$row['Drug_Name'].' ] [ Unit Price:<b> '.$price.'</b> ] [ Quantity:<b> '.$Array[$i + 1].' </b>]  [ Quantity in Stock:<b> '.$qnty.' </b>]</p>';
         }
         else{
             $total += $price * $Array[$i];
